@@ -12,7 +12,8 @@ accidentally wrote my own version of `preprocessing.Pipeline`!  but for building
 ### Recipe Parsing
 
 ```python
-from datakit import build
+import datakit
+from datakit.transformers import build
 ```
 
 - `build()` is an `obj` that will house our "recipe"
