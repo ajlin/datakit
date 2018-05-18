@@ -11,7 +11,9 @@ accidentally wrote my own version of `preprocessing.Pipeline`!  but for building
 
 ### Recipe Parsing
 
-`from datakit import build`
+```python
+from datakit import build
+```
 
 - `build()` is an `obj` that will house our "recipe"
 
@@ -20,7 +22,7 @@ accidentally wrote my own version of `preprocessing.Pipeline`!  but for building
 - args can be a `tuple` as well, for multiple arguments.
 
 **ie:**
-```
+```python
 recipe = [  
     ( function1 , [arg] ),  
     ( function2 , ( [arg],[arg],opt,opt) ),  
@@ -33,7 +35,7 @@ recipe = [
 
 
 ##### run one command `columns()` to pull columns from DataFrame `df`:
-```
+```python
 recipe = [( columns , ['Id','Overall Cond'] )]
 
 
@@ -43,7 +45,7 @@ basic_X = basic.transform(df)
 
 ##### string two commands together and output DataFrame:
 
-```
+```python
 recipe = [( columns , ['Id','Overall Cond'] ),
           ( columns , ['1st Flr SF'])]
 basic2 = build(recipe)
@@ -52,13 +54,13 @@ basic2_X = basic2.transform(df)
 
 ##### it also accepts custom dataframes, and custom transform functions:
 build custom columns (you can do this with datakit's helper functions too)
-```
+```python
 sqft = pd.DataFrame(df['1st Flr SF']+df['2nd Flr SF'],columns=["sqft"])
 remodel = pd.DataFrame(df['Year Remod/Add'].map(lambda x: x>1975))*1
 ```
 
 feed them into the recipe...
-```
+```python
 recipe = [
     ( columns , ['Id','Overall Cond'] ),
     ( dummies , 'Sale Type' ),
