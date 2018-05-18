@@ -19,6 +19,7 @@ accidentally wrote my own version of `preprocessing.Pipeline`!  but for building
 - where each command is a `tuple` of  `(function,args)`
 - args can be a `tuple` as well, for multiple arguments.
 
+**ie:**
 ```
 recipe = [  
     ( function1 , [arg] ),  
